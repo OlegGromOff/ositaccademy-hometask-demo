@@ -1,0 +1,13 @@
+li:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.list-todos {
+  display: flex;
+  flex-direction: column-reverse;
+}
