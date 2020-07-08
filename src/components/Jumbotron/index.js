@@ -1,5 +1,5 @@
 import React from 'react';
-import FormGroup from '../Task8formGroup/';
+import FormGroup from '../formGroup';
 
 export default function Jumbotron(props) {
 

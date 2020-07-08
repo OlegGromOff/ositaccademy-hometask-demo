@@ -11,7 +11,7 @@ import Task8 from './components/Task8';
 function App() {
   return (
     <div className="App">
-      <Task1 />
+      {/* <Task1 /> */}
       {/* Comment: Task1 Random name */}
       {/* <Task2 /> */}
       {/* Comment: Task2 Todo app include task 3 */}
@@ -22,7 +22,8 @@ function App() {
       {/* Comment: Task6 get API data handle the error*/}
       {/* <Task7 /> */}
       {/* Comment: Task 7 not done */}
-      {/* <Task8 /> */}
+      <Task8 />
+      {/* Comment: Task 8 include task 9-10 */}
 
     </div>
   );

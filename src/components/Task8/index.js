@@ -1,39 +1,144 @@
 import React from 'react';
-import Header from '../Task8Header';
-import Jumbotron from '../Task8Jumbotron';
-import BookmarksResult from '../Task8Bookmark/';
+import Header from './Header';
+import BookmarksResult from './Bookmark';
 
 
 export default class Task8 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
+  state = {
+    name: '',
+    url: '',
+    emptyForm: false,
+    invalidUrl: false,
+    bookmarks: []
   };
 
+  componentDidMount() {
+    this.getLocaleStorageData()
+  }
+
+
+  getLocaleStorageData = () => {
+    this.setState({
+      bookmarks: JSON.parse(localStorage.getItem('bookmarks'))
+    });
+  };
+
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { name, url } = this.state;
+
+
+    if (this.validateForm(name, url)) {
+      const bookmark = {
+        name,
+        url,
+      };
+      if (localStorage.getItem('bookmarks') === null) {
+        let bookmarks = [];
+        bookmarks.push(bookmark);
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      } else {
+        let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+        bookmarks.push(bookmark);
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      }
+      this.setState({
+        name: '',
+        url: ''
+      });
+
+    }
+    this.getLocaleStorageData()
+  };
+
+
+  onChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+
+  validateForm = (name, url) => {
+    if (!name || !url) {
+      this.setState({
+        emptyForm: true
+      });
+      alert('The form is incomplete');
+      return false;
+    }
+
+    const regex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+
+    if (!url.match(regex)) {
+      this.setState({
+        invalidUrl: true
+      });
+      alert('Please enter right url');
+      return false;
+    }
+
+    return true;
+  };
+  removeBookmark = (url) => {
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    for (let i = 0; i < bookmarks.length; i++) {
+      if (bookmarks[i].url === url) {
+        bookmarks.splice(i, 1);
+      }
+    }
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+    this.getLocaleStorageData();
+  };
+
+
   render() {
+    const { name, url, bookmarks } = this.state;
+
     return (
-      <body onLoad="fetchBookmarks()">
-        <div className="container">
-          <Header />
-          <Jumbotron />
-          <BookmarksResult />
+      <div>
+        <Header />
+        <div className="jumbotron">
+          <h2>Bookmark your favorite Sites</h2>
 
+          <form id="myForm" onSubmit={this.onSubmit}>
+            <div className="form-group">
+              <label for="">Site Name</label>
+              <input type="text"
+                className="form-control"
+                name="name"
+                placeholder="Website Name"
+                value={name}
+                onChange={this.onChange} />
+            </div>
 
+            <div className="form-group">
+              <label for="">Site URL</label>
+              <input type="text"
+                className="form-control"
+                name="url"
+                placeholder="Website URL"
+                value={url}
+                onChange={this.onChange} />
+            </div>
 
-          <footer className="footer">
-            <p>&copy; 2019 Bookmarker, Inc. | Developed by Rotimi Best</p>
-          </footer>
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
         </div>
 
-        <script
-          src="http://code.jquery.com/jquery-3.3.1.js"
-          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-          crossorigin="anonymous"></script>
-
-      </body>
-
-    )
+        <div className="row marketing">
+          <div className="col-lg-12">
+            <div id="bookmarksResult">
+              <BookmarksResult bookmarks={bookmarks} removeBookmark={this.removeBookmark} />
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <p>&copy; 2020 Bookmarker, Inc. | Developed by Oleg Gromov</p>
+        </footer>
+      </div>
+    );
   }
 }

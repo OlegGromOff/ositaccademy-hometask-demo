@@ -6,7 +6,7 @@ export default function Header(props) {
       <nav>
 
       </nav>
-      <h3 className="text-muted">My Bookmarker</h3>
+      <h3 className="app-title">My Bookmarker</h3>
     </div>
   )
 }
