@@ -20,9 +20,8 @@ function App() {
       {/* Comment: Task5 get API data */}
       {/* <ErrorBoundary><Task6 /></ErrorBoundary> */}
       {/* Comment: Task6 get API data handle the error*/}
-      {/* <Task7 /> */}
-      {/* Comment: Task 7 not done */}
-      <Task8 />
+      <Task7 />
+      {/* <Task8 /> */}
       {/* Comment: Task 8 include task 9-10 */}
 
     </div>

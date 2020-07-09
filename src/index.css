@@ -51,3 +51,56 @@ footer {
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
+
+.slider-img {
+  width: 500px;
+  max-width: 100%;
+}
+
+
+
+.slider-inner {
+  text-align: center;
+  position: relative;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  border: none;
+  background-color: #0275d8;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+.prev-button {
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next-button {
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev-button:focus,
+.next-button:focus {
+  outline: none;
+}
+
+@media screen and (max-width:640px) {
+  .slider-img {
+    width: 220px;
+  }
+
+  .prev-button {
+    left: -25px
+  }
+
+  .next-button {
+    right: -25px;
+  }
+}
