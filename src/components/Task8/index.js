@@ -111,6 +111,7 @@ export default class Task8 extends React.Component {
                 name="name"
                 placeholder="Website Name"
                 value={name}
+                // id="name"
                 onChange={this.onChange} />
             </div>
 
@@ -121,6 +122,7 @@ export default class Task8 extends React.Component {
                 name="url"
                 placeholder="Website URL"
                 value={url}
+                // id="url"
                 onChange={this.onChange} />
             </div>
 
@@ -131,7 +133,7 @@ export default class Task8 extends React.Component {
         <div className="row marketing">
           <div className="col-lg-12">
             <div id="bookmarksResult">
-              <BookmarksResult bookmarks={bookmarks} removeBookmark={this.removeBookmark} />
+              <BookmarksResult bookmarks={this.state.bookmarks} removeBookmark={this.removeBookmark} />
             </div>
           </div>
         </div>
