@@ -26,6 +26,7 @@ export default class Task8 extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+
     const { name, url } = this.state;
 
 
@@ -83,13 +84,13 @@ export default class Task8 extends React.Component {
   };
   removeBookmark = (url) => {
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-    for (let i = 0; i < bookmarks.length; i++) {
-      if (bookmarks[i].url === url) {
-        bookmarks.splice(i, 1);
-      }
-    }
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-
+    let newBookmarks = bookmarks.filter(
+      (bookmarkObj) => bookmarkObj.url !== url
+    );
+    this.setState({
+      bookmarks: newBookmarks,
+    });
+    localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
     this.getLocaleStorageData();
   };
 
@@ -111,7 +112,6 @@ export default class Task8 extends React.Component {
                 name="name"
                 placeholder="Website Name"
                 value={name}
-                // id="name"
                 onChange={this.onChange} />
             </div>
 
@@ -122,7 +122,6 @@ export default class Task8 extends React.Component {
                 name="url"
                 placeholder="Website URL"
                 value={url}
-                // id="url"
                 onChange={this.onChange} />
             </div>
 
