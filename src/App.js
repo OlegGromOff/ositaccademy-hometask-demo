@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       {/* <Task1 /> */}
       {/* Comment: Task1 Random name */}
-      {/* <Task2 /> */}
+      <Task2 />
       {/* Comment: Task2 Todo app include task 3 */}
       {/* <Task4 min="0" max="10" /> */}
       {/* <Task5 /> */}
@@ -21,7 +21,7 @@ function App() {
       {/* <ErrorBoundary><Task6 /></ErrorBoundary> */}
       {/* Comment: Task6 get API data handle the error*/}
       {/* <Task7 /> */}
-      <Task8 />
+      {/* <Task8 /> */}
       {/* Comment: Task 8 include task 9-10 */}
 
     </div>

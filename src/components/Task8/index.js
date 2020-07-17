@@ -94,7 +94,6 @@ export default class Task8 extends React.Component {
     this.getLocaleStorageData();
   };
 
-
   render() {
     const { name, url, bookmarks } = this.state;
 
@@ -143,3 +142,4 @@ export default class Task8 extends React.Component {
     );
   }
 }
+

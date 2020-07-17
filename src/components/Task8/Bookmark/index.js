@@ -2,7 +2,7 @@ import React from 'react';
 
 const BookmarksResult = ({ bookmarks, removeBookmark }) => {
 
-  if (bookmarks === undefined || bookmarks.length === 0) return null;
+  if (!bookmarks  || bookmarks.length === 0) return null;
 
   return (
     <div className="bottom-form-side">
