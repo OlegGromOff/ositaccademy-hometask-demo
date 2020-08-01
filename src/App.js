@@ -7,13 +7,14 @@ import Task5 from './components/Task5';
 import Task6 from './components/Task6';
 import Task7 from './components/Task7';
 import Task8 from './components/Task8';
+import Task12 from './components/lesson12';
 
 function App() {
   return (
     <div className="App">
       {/* <Task1 /> */}
       {/* Comment: Task1 Random name */}
-      <Task2 />
+      {/* <Task2 /> */}
       {/* Comment: Task2 Todo app include task 3 */}
       {/* <Task4 min="0" max="10" /> */}
       {/* <Task5 /> */}
@@ -23,6 +24,7 @@ function App() {
       {/* <Task7 /> */}
       {/* <Task8 /> */}
       {/* Comment: Task 8 include task 9-10 */}
+      <Task12 />
 
     </div>
   );

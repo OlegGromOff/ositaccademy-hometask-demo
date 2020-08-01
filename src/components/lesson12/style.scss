@@ -1,0 +1,25 @@
+.ideasWrapper {
+  padding: 15px;
+}
+
+.idea {
+  padding: 30px 50px 15px;
+
+
+  &__top-side {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-data {
+    font-size: 13px;
+    font-style: italic;
+    color: #908787;
+  }
+}
+
+.favorite-selected {
+  background-color: #d23b3b;
+  border: 1px solid #d23b3b;
+  color: white;
+}
