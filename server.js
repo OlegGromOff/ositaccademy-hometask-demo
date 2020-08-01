@@ -6,7 +6,6 @@ const port = 3000; //создали порт
 
 app.use(express.json()); // используем middleware который парсит данные в json
 
-
 let ideas = []; // наши мысли, массив (локальное хранилище без БД)
 
 app.post("/ideas", (req, res) => {
@@ -14,19 +13,11 @@ app.post("/ideas", (req, res) => {
   res.json(ideas); // отправляем данные на страницу /ideas
 });
 
+
 app.get("/ideas", (req, res) => {
   // получаем с сервера ответ 
   res.json(ideas);
 });
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/public/index.html'); // change the path to your index.html
-});
-
-// app.get('/', function (req, res) {
-//   res.sendFile(__dirname + '/public/index.html'); // change the path to your index.html
-//   res.json(ideas);
-// });
 
 app.delete("/ideas", (req, res) => {
   ideas = ideas.filter((item) => !(item.id == req.query.id)); // выводим посты которые не равны req.query.id
