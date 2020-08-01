@@ -19,9 +19,18 @@ app.get("/ideas", (req, res) => {
   res.json(ideas);
 });
 
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/public/index.html'); // change the path to your index.html
+});
+
+// app.get('/', function (req, res) {
+//   res.sendFile(__dirname + '/public/index.html'); // change the path to your index.html
+//   res.json(ideas);
+// });
+
 app.delete("/ideas", (req, res) => {
-  const { thoughtId } = req.params;
-  ideas = ideas.filter((item) => !(item.id == thoughtId)); // выводим посты которые не равны req.params
+  ideas = ideas.filter((item) => !(item.id == req.query.id)); // выводим посты которые не равны req.query.id
+  // req.query объект, содержащий свойство для каждого параметра строки запроса
   res.json(ideas);
 });
 

@@ -70,7 +70,7 @@ export default function Idea({
                 <p className="edit-field">
                   Added/Edited by you {ideaTime.minutes} min ago
               </p>
-                <p>{value}</p>
+                <p className="value-font">{value}</p>
               </div>
             )}
         </div>

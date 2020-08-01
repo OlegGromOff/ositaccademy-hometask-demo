@@ -25,6 +25,8 @@ function App() {
       {/* <Task8 /> */}
       {/* Comment: Task 8 include task 9-10 */}
       <Task12 />
+      {/* Запуск - в терминале node server.js и npm start  */}
+
 
     </div>
   );

@@ -105,6 +105,7 @@ export default function Youridea() {
         type="text"
         placeholder="Write your idea and press enter"
         onKeyPress={addIdea}
+        className="addIdeaInput"
       />
     </div>
   );
